@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>sage.addons.EjemAddons</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Librerias\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Librerias\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>sage.addons.EjemAddons</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="sage.ew.db">
+      <HintPath>sage.ew.db.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.ewbase">
+      <HintPath>sage.ew.ewbase.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.functions">
+      <HintPath>sage.ew.functions.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.global">
+      <HintPath>sage.ew.global.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.interficies">
+      <HintPath>sage.ew.interficies.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.enumerations">
+      <HintPath>sage.ew.enumerations.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.images">
+      <HintPath>sage.ew.images.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.botones">
+      <HintPath>sage.ew.botones.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.formul">
+      <HintPath>sage.ew.formul.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.objetos">
+      <HintPath>sage.ew.objetos.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.txtbox">
+      <HintPath>sage.ew.txtbox.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.listados">
+      <HintPath>sage.ew.listados.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.reports">
+      <HintPath>sage.ew.reports.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Negocio\Clases\classConfig.cs" />
+    <Compile Include="SageAddons.cs" />
+    <Compile Include="Visual\UserControls\usercontrolConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\UserControls\usercontrolConfig.designer.cs">
+      <DependentUpon>usercontrolConfig.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataAccess\DA\" />
+    <Folder Include="DataAccess\Interfaces\" />
+    <Folder Include="Negocio\Documentos\" />
+    <Folder Include="Negocio\Enums\" />
+    <Folder Include="Negocio\Interficies\" />
+    <Folder Include="Negocio\Listados\" />
+    <Folder Include="Negocio\Mantes\" />
+    <Folder Include="sage.ew.reports\personalizados\" />
+    <Folder Include="Visual\BindForm\" />
+    <Folder Include="Visual\Forms\" />
+    <Folder Include="Visual\Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
+    <Content Include="sage.ew.reports\base\template.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Visual\UserControls\usercontrolConfig.resx">
+      <DependentUpon>usercontrolConfig.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
