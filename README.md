@@ -25,7 +25,7 @@ Después con Visual Studio puedes abrir el fichero de la solución EjemAddons.sl
   <li>Se debe utilizar el proceso de instalación para que realice la instalación de la base de datos del add-on</li>
 </ul>
 
-<h2>Ejecución del código fuente en un Sage 50 en carpetas personalizadas</h2>
+<h2>Ejecución del código fuente en un Sage 50 con carpetas personalizadas</h2>
 <p>En caso que tengamos un Sage 50 en una carpeta diferente de Sage50 para poder arrancar el proyecto desde Visual Studio deberemos configurar 
 las siguientes variables del fichero program.cs del proyecto Main:</p>
 
