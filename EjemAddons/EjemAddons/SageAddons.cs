@@ -1,4 +1,5 @@
-﻿using sage.ew.ewbase;
+﻿using sage.addons.EjemAddons.Negocio.Clases;
+using sage.ew.ewbase;
 using sage.ew.formul;
 using sage.ew.formul.Forms;
 using sage.ew.interficies;
@@ -49,6 +50,21 @@ namespace sage.addons.EjemAddons
 
 
         #region MÉTODOS
+
+        /// <summary>
+        /// Método que nos permite configurar como se debe actualizar nuestro add-on y desde que espacio FTP
+        /// Únicamente configuramos para que nos devuelva un objeto que cumpla la interfaz IAccesAddonUrl y Sage 50 tanto en el 
+        /// proceso de actualización de una Master como la actualización de una release automáticamente accederá a la configuración
+        /// del hosting y se bajará la última versión del add-on.
+        /// </summary>
+        /// <returns></returns>
+        public override IAccesAddonUrl _GetNewVersion()
+        {
+            // devolvemos un objeto del tipo UpdateAddonHosting que cumple la interfaz que se espera
+            // en este objeto se definen las propiedades url del ftp, usuario, password del usuario y la carpeta donde está
+            // el paquete del add-on (instalador del add-on)
+            return new UpdateAddonHosting();
+        }
 
         /// <summary>
         /// Devuelve la lista prévia del documento
