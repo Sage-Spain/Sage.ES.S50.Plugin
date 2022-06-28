@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Negocio\Clases\classConfig.cs" />
+    <Compile Include="Negocio\Clases\UpdateAddonHosting.cs" />
     <Compile Include="SageAddons.cs" />
     <Compile Include="Visual\UserControls\usercontrolConfig.cs">
       <SubType>UserControl</SubType>
