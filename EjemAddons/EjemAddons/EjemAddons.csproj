@@ -87,6 +87,8 @@
     <Compile Include="Negocio\Clases\classConfig.cs" />
     <Compile Include="Negocio\Clases\UpdateAddonHosting.cs" />
     <Compile Include="SageAddons.cs" />
+    <Compile Include="Visual\BindForm\BindFormBase.cs" />
+    <Compile Include="Visual\BindForm\BindFormEventosClick.cs" />
     <Compile Include="Visual\UserControls\usercontrolConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,7 +105,6 @@
     <Folder Include="Negocio\Listados\" />
     <Folder Include="Negocio\Mantes\" />
     <Folder Include="sage.ew.reports\personalizados\" />
-    <Folder Include="Visual\BindForm\" />
     <Folder Include="Visual\Forms\" />
     <Folder Include="Visual\Reports\" />
   </ItemGroup>
