@@ -1,4 +1,5 @@
 ﻿using sage.addons.EjemAddons.Negocio.Clases;
+using sage.addons.EjemAddons.Visual.BindForm;
 using sage.ew.ewbase;
 using sage.ew.formul;
 using sage.ew.formul.Forms;
@@ -150,6 +151,10 @@ namespace sage.addons.EjemAddons
 
             switch (_nombreForm)
             {
+                case "frmfactalbaranespendientes":
+                    BindFormEventosClick loBindFormEventosClick = new BindFormEventosClick(_formBase);
+                    break;
+
                 default:
                     break;
             }
