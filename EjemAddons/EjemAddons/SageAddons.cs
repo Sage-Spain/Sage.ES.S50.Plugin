@@ -156,6 +156,11 @@ namespace sage.addons.EjemAddons
                 case "frmdocventaalbaran":
                     // Añadimos una opción en el botón de herramientas de los documentos de venta que nos presentará un mensaje con el título del formulario.
                     BindFormGetOpcionesHerramientas loBindFormGetOpcionesHerramientas = new BindFormGetOpcionesHerramientas(_formBase);
+
+                    // Ejemplo _GetOpciones para los documentos de venta
+                    // El código está implementado en la clase "BindFormGetOpcionesDocumentosVenta" para poder diferenciar el código de ejemplo para acceder al botón de herramientas
+                    // No es necesario tener dos clases, está implementado de esta forma para poder visualizar más fácilmente el ejemplo a mostrar
+                    BindFormGetOpcionesDocumentosVenta loBindFormGetOpcionesDocumentosVenta = new BindFormGetOpcionesDocumentosVenta(_formBase);
                     break;
 
 
