@@ -49,7 +49,6 @@ namespace sage.addons.EjemAddons
         }
         #endregion CONSTRUCTORES
 
-
         #region MÉTODOS
 
         /// <summary>
@@ -151,6 +150,15 @@ namespace sage.addons.EjemAddons
 
             switch (_nombreForm)
             {
+                case "frmdocventatpv":
+                case "frmdocventaped":
+                case "frmdocventapresupuesto":
+                case "frmdocventaalbaran":
+                    // Añadimos una opción en el botón de herramientas de los documentos de venta que nos presentará un mensaje con el título del formulario.
+                    BindFormGetOpcionesHerramientas loBindFormGetOpcionesHerramientas = new BindFormGetOpcionesHerramientas(_formBase);
+                    break;
+
+
                 case "frmfactalbaranespendientes":
                     BindFormEventosClick loBindFormEventosClick = new BindFormEventosClick(_formBase);
                     break;
