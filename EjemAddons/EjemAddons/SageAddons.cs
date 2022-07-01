@@ -173,6 +173,11 @@ namespace sage.addons.EjemAddons
                     BindFormGetOpcionesAsientos loBindFormGetOpcioneAsientos = new BindFormGetOpcionesAsientos(_formBase);
                     break;
 
+                case "frmlistasprevias":
+                    // Ejemplo _GetOpciones para tener acceso al menú del botón “Opciones” de las listas previas de la pantalla de Asientos
+                    BindFormGetOpcionesListasPrevias loBindFormGetOpcionesListasPrevias = new BindFormGetOpcionesListasPrevias(_formBase);
+                    break;
+
                 default:
                     break;
             }

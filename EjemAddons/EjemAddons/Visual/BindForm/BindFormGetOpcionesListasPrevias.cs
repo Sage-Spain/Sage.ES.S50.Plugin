@@ -1,4 +1,6 @@
 ﻿using sage.ew.formul;
+using sage.ew.formul.Forms;
+using sage.ew.formul.UserControls;
 using sage.ew.global;
 using sage.ew.interficies;
 using sage.ew.objetos;
@@ -14,9 +16,11 @@ namespace sage.addons.EjemAddons.Visual.BindForm
     /// <summary>
     /// BindFormGetOpcionesAsientos
     /// 
-    /// Ejemplo del evento _GetOpciones en el formulario de asientos contables
+    /// Ejemplo del evento _GetOpciones en el formulario de listas previas
     /// 
-    /// Mediante el siguiente código se podrá acceder a las opciones que se presentan en el formulario de asientos contables poder gestionar acciones adicionales,
+    /// En este ejemplo adicionalmente se realizará la modificación para las listas previas de asientos contables
+    /// 
+    /// Mediante el siguiente código se podrá acceder a las opciones que se presentan en el formulario de de listas previas asientos contables poder gestionar acciones adicionales,
     /// limitar la ejecución de alguna opción y podremos ver como añadir una nueva opción en el botón de opciones.
     /// 
     /// Ejemplos:
@@ -24,7 +28,6 @@ namespace sage.addons.EjemAddons.Visual.BindForm
     /// - Actualizar la descripción de una opción del botón de opciones
     /// - Modificar el estilo de la fuente a Negrita
     /// - Cambiar el color de una opción
-    /// - Ocultar una opción a partir de si contiene un texto
     /// - Desactivar una opción con la lógica correspondiente
     /// - Bloquear una opción de menú en función del usuario actual
     /// 
@@ -32,15 +35,24 @@ namespace sage.addons.EjemAddons.Visual.BindForm
     /// 
     /// Adicionalmente tenemos el ejemplo de como suscribirnos a los eventos OnClickInvalidate, OnClickBefore y OnClickAfter del "ToolStripMenuItemBase"
     /// </summary>
-    public class BindFormGetOpcionesAsientos : BindFormBase
+    public class BindFormGetOpcionesListasPrevias : BindFormBase
     {
+        #region Propiedades privadas
+        /// <summary>
+        /// Referencia al formularios de listas previas
+        /// </summary>
+        private frmListasPrevias _ofrmListasPrevias = null;
+        #endregion Propiedades privadas
+
         #region Constructor
         /// <summary>
-        /// Constructor de la clase BindFormGetOpcionesAsientos
+        /// Constructor de la clase BindFormGetOpcionesListasPrevias
         /// </summary>
         /// <param name="toFormBase">Referencia al formulario al que estamos realizando el correspondiente _BindForm</param>
-        public BindFormGetOpcionesAsientos(IFormBase toFormBase) : base(toFormBase)
+        public BindFormGetOpcionesListasPrevias(IFormBase toFormBase) : base(toFormBase)
         {
+            // Asignamos la referencia del formulario de listas previas
+            _ofrmListasPrevias = (sage.ew.formul.Forms.frmListasPrevias)toFormBase;
         }
         #endregion Constructor
 
@@ -56,14 +68,14 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         }
 
         /// <summary>
-        /// Suscripción al evento "_GetOpciones" del formulario base de Sage 50 para poder gestionar las opciones del formulario de asientos
+        /// Suscripción al evento "_GetOpciones" del formulario base de Sage 50 para poder gestionar las opciones de la lista previas del formulario de asientos
         /// </summary>
         public override void _SuscripcionEventos()
         {
             base._SuscripcionEventos();
 
             if (_oFormBase != null)
-                _oFormBase._GetOpciones += BindFormGetOpcionesAsientos__GetOpciones;
+                _oFormBase._GetOpciones += BindFormGetOpcionesListasPrevias__GetOpciones;
         }
 
         /// <summary>
@@ -76,47 +88,80 @@ namespace sage.addons.EjemAddons.Visual.BindForm
             base._CancelarSuscripcionEventos();
 
             if (_oFormBase != null)
-                _oFormBase._GetOpciones -= BindFormGetOpcionesAsientos__GetOpciones;
+                _oFormBase._GetOpciones -= BindFormGetOpcionesListasPrevias__GetOpciones;
         }
         #endregion Métodos public override
 
         #region Métodos privados
         /// <summary>
-        /// Ejemplo de como añadir opciones al menú contextual de herramientas del formulario de asientos contables
+        /// Devuelve si la lista previa es de asientos
+        /// 
+        /// En el formulario de listas previas podemos tener en ejecucion varios tipos de documenento.
+        /// En este método se gestiona si la lista previa es del tipo de asiento contable
+        /// </summary>
+        /// <returns></returns>
+        private bool EsListaPreviaAsiento()
+        {
+            bool llAsientos = false;
+
+            // Certificamos si el control activo es del tipo "ListasPreviasTab"
+            if (_ofrmListasPrevias.ActiveControl is ListasPreviasTab)
+            {
+                ListasPreviasTab lofomListasPreviasTab = (ListasPreviasTab)_ofrmListasPrevias.ActiveControl;
+
+                dynamic loformDocumento = lofomListasPreviasTab.ActiveControl;
+
+                // Validamos si el control activo de la instancia de la clase "ListasPreviasTab" es una lista previa de asientos (ListasPreviasDocsAsientos)
+                llAsientos = (loformDocumento is ListasPreviasDocsAsientos);
+            }
+
+            return llAsientos;
+        }
+
+        /// <summary>
+        /// Ejemplo de como añadir opciones al menú contextual de herramientas del formulario de la lista previa de asientos contables
         /// </summary>
         /// <param name="toEnventArgOpciones">EventArgs con las opciones del ContextMenu</param>
-        private void BindFormGetOpcionesAsientos__GetOpciones(ew.objetos.EventArgsOpciones toEnventArgOpciones)
+        private void BindFormGetOpcionesListasPrevias__GetOpciones(ew.objetos.EventArgsOpciones toEnventArgOpciones)
         {
             if (toEnventArgOpciones.Sender == null)
                 return;
 
-            if (toEnventArgOpciones.Sender is ContextMenuStrip)
+            if (_ofrmListasPrevias == null)
+                return;
+
+            // Certificamos si la lista previa es de asientos contables
+            bool llListaPreviasAsientos = EsListaPreviaAsiento();
+
+            if (toEnventArgOpciones.Sender is ContextMenuStrip && llListaPreviasAsientos)
             {
-                ContextMenuStrip loContextMenuStrip = ((ContextMenuStrip)toEnventArgOpciones.Sender);
-
-                string lcKeyOpcion = "NuevaOpcionAsientos"; // Asignamos un nombre para certificar que no existe el ToolStripMenuItemBase en la colección del ContextMenuStrip
-
-                Control loParent = loContextMenuStrip.Parent;
-
-                // Es necesario validar si existe el item en el ContextMenuStrip
-                if (!loContextMenuStrip.Items.ContainsKey(lcKeyOpcion))
                 {
-                    // Añadimos un separador para separar del resto de opciones
-                    loContextMenuStrip.Items.Add(new ToolStripSeparator());
-                    
-                    // Instanciamos / configuramos el ToolStripMenuItemBase
-                    ToolStripMenuItemBase loToolStripMenuItemBase = new ToolStripMenuItemBase();
-                    loToolStripMenuItemBase.Name = lcKeyOpcion;
-                    loToolStripMenuItemBase.Text = "Ejemplo nueva opción del botón de opciones en asientos contables (Ejemplo _GetOpciones)";
-                    loToolStripMenuItemBase.Image = sage.ew.images.Properties.Resources.company_con_16;
-                    loToolStripMenuItemBase.Click += ToolStripMenuItemBase_Click;
+                    ContextMenuStrip loContextMenuStrip = ((ContextMenuStrip)toEnventArgOpciones.Sender);
 
-                    // Añadimos la opción
-                    loContextMenuStrip.Items.Add(loToolStripMenuItemBase);
+                    string lcKeyOpcion = "NuevaOpcionListaPreviaAsientos"; // Asignamos un nombre para certificar que no existe el ToolStripMenuItemBase en la colección del ContextMenuStrip
+
+                    Control loParent = loContextMenuStrip.Parent;
+
+                    // Es necesario validar si existe el item en el ContextMenuStrip
+                    if (!loContextMenuStrip.Items.ContainsKey(lcKeyOpcion))
+                    {
+                        // Añadimos un separador para separar del resto de opciones
+                        loContextMenuStrip.Items.Add(new ToolStripSeparator());
+
+                        // Instanciamos / configuramos el ToolStripMenuItemBase
+                        ToolStripMenuItemBase loToolStripMenuItemBase = new ToolStripMenuItemBase();
+                        loToolStripMenuItemBase.Name = lcKeyOpcion;
+                        loToolStripMenuItemBase.Text = "Ejemplo nueva opción del botón de opciones de la lista previa de asientos contables (Ejemplo _GetOpciones)";
+                        loToolStripMenuItemBase.Image = sage.ew.images.Properties.Resources.company_con_16;
+                        loToolStripMenuItemBase.Click += ToolStripMenuItemBase_Click;
+
+                        // Añadimos la opción
+                        loContextMenuStrip.Items.Add(loToolStripMenuItemBase);
+                    }
+
+                    // Antes de presentar las opciones podremos personalizar o controlar las acciones a realizar
+                    FrmListasPreviasGestionarOpciones(toEnventArgOpciones);
                 }
-
-                // Antes de presentar las opciones podremos personalizar o controlar las acciones a realizar
-                FrmAsientosGestionarOpciones(toEnventArgOpciones);
             }
         }
 
@@ -127,7 +172,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         /// <param name="e"></param>
         private void ToolStripMenuItemBase_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Click sobre la nueva opción del botón de opciones en asientos contables (Ejemplo _GetOpciones)" , _oFormBase.Text);
+            MessageBox.Show("Click sobre la nueva opción del botón de opciones en asientos contables (Ejemplo _GetOpciones)", _oFormBase.Text);
         }
 
         /// <summary>
@@ -136,34 +181,31 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         /// toEnventArgOpciones.Opciones es una colección ToolStripMenuItemBase donde tenemos las diferentes opciones del botón
         /// </summary>
         /// <param name="tlstOpciones">Lista de opciones a presentar</param>
-        private void FrmAsientosGestionarOpciones(EventArgsOpciones toEnventArgOpciones)
+        private void FrmListasPreviasGestionarOpciones(EventArgsOpciones toEnventArgOpciones)
         {
             if (toEnventArgOpciones.Opciones == null || toEnventArgOpciones.Opciones.Count == 0) // No debe de pasar nunca
                 return;
 
-            // Recorremos las diferentes opciones que se presentan en el botón de opciones
             foreach (ToolStripMenuItemBase loToolStripMenuItemBase in toEnventArgOpciones.Opciones)
             {
                 string lcLowertext = loToolStripMenuItemBase.Text.ToLower();
 
-                // Actualizamos la descripción de una opción del botón de opciones
-                if (lcLowertext.Contains("zoom"))
-                    loToolStripMenuItemBase.Text = loToolStripMenuItemBase.Text + " del asiento contable y detalla de los impuestos";
+                // Podemos gestionar las opciones por el valor de la propiedad Text
+                if (lcLowertext.Contains("editar"))
+                {
+                    loToolStripMenuItemBase.Text = loToolStripMenuItemBase.Text + " asiento contable";
+                    loToolStripMenuItemBase.ForeColor = System.Drawing.Color.Green;
+                }
 
-                // Modificamos el estilo de la fuente a Negrita
-                if (lcLowertext.Contains("revisión"))
+                // Modificamos el estilo de la fuente a Negrita y cambiamos el color
+                if (lcLowertext.Contains("nuevo"))
+                {
                     loToolStripMenuItemBase.Font = new System.Drawing.Font(loToolStripMenuItemBase.Font, System.Drawing.FontStyle.Bold);
+                    loToolStripMenuItemBase.ForeColor = System.Drawing.Color.Green;
+                }
 
-                // Actualizamos el color
-                if (lcLowertext.Contains("factura"))
-                    loToolStripMenuItemBase.ForeColor = System.Drawing.Color.Blue;
-
-                // Ocultar una opción a partir de si contiene un texto
-                if (lcLowertext.Contains("dua"))
-                    loToolStripMenuItemBase.Visible = false;
-
-                // Desactivamos una opción con la lógica que pertoque, en esta caso desactivamos los datos adicionales del SII
-                if (loToolStripMenuItemBase.Text.Contains("adicionales"))
+                // Desactivar una opción
+                if (lcLowertext.Contains("eliminar"))
                     loToolStripMenuItemBase.Enabled = false;
 
                 // Adicionalmente podemos gestionar suscribirnos a los 3 eventos disponibles para gestionar la invalidación de una acción
@@ -172,7 +214,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
                 // Evento Before si es necesario realizar alguna acción previa 
                 loToolStripMenuItemBase.OnClickBefore += ToolStripMenuItemBase_OnClickBefore;
 
-                // Evento Before si es necesario realizar alguna acción previa 
+                //    // Evento Before si es necesario realizar alguna acción previa 
                 loToolStripMenuItemBase.OnClickAfter += ToolStripMenuItemBase_OnClickAfter;
             }
         }
@@ -180,7 +222,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         /// <summary>
         /// Controles previos al click del ToolStripMenuItem para poder cancelar la ejecución de la acción
         /// 
-        /// En este ejemplo únicamente dejamos utilizar la opción de "Ver factura" al usuario SUPERVISOR
+        /// En este ejemplo únicamente dejamos utilizar la opción de "Exportar" al usuario SUPERVISOR
         /// </summary>
         /// <param name="toToolStripMenuItemBase">Referencia al ítem</param>
         /// <param name="tlCancel">Es necesario devolver true para que no continue con la ejecucuón del click</param>
@@ -190,8 +232,8 @@ namespace sage.addons.EjemAddons.Visual.BindForm
             string lcText = toToolStripMenuItemBase.Text;
             string lcName = toToolStripMenuItemBase.Name;
 
-            // Bloquear una opción de menú en función del usuario actual
-            if (lcText.ToLower().Contains("ver factura") && Convert.ToString(EW_GLOBAL._GetVariable("wc_usuario")) != "SUPERVISOR")
+            // Bloquear la ejecución de una opción de menú en función del usuario actual
+            if (lcText.ToLower().Contains("nuevo") && Convert.ToString(EW_GLOBAL._GetVariable("wc_usuario")) != "SUPERVISOR")
             {
                 tlCancel = true; // Asignamos el valor "true" a "tlCancel" para cancelar la ejecución de la acción
                 MessageBox.Show($"OnClickInvalidate del ítem {lcText}. Únicamente puede acceder a ver factura el usuario SUPERVISOR.");
@@ -237,3 +279,4 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         #endregion Métodos privados
     }
 }
+

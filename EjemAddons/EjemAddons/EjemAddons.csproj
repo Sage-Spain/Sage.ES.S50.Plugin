@@ -92,6 +92,7 @@
     <Compile Include="Visual\BindForm\BindFormGetOpcionesAsientos.cs" />
     <Compile Include="Visual\BindForm\BindFormGetOpcionesDocumentosVenta.cs" />
     <Compile Include="Visual\BindForm\BindFormGetOpcionesHerramientas.cs" />
+    <Compile Include="Visual\BindForm\BindFormGetOpcionesListasPrevias.cs" />
     <Compile Include="Visual\UserControls\usercontrolConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
