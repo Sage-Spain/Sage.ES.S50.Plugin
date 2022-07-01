@@ -168,6 +168,11 @@ namespace sage.addons.EjemAddons
                     BindFormEventosClick loBindFormEventosClick = new BindFormEventosClick(_formBase);
                     break;
 
+                case "frmasientos":
+                    // Ejemplo _GetOpciones para tener acceso al menú del botón “Opciones” en la pantalla de Asientos
+                    BindFormGetOpcionesAsientos loBindFormGetOpcioneAsientos = new BindFormGetOpcionesAsientos(_formBase);
+                    break;
+
                 default:
                     break;
             }
