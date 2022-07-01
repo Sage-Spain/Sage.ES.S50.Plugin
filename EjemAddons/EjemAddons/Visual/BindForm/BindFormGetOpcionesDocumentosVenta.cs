@@ -27,7 +27,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
     /// 
     /// Se pueden realizar más acciones, el código simplemente es para ver como acceder a las opciones y varias de las posibilidades que tenemos.
     /// 
-    /// Adicionalmente tenemos el ejemplo de como suscribrinos a los eventos OnClickInvalidate, OnClickBefore y OnClickAfter del "ToolStripMenuItemBase"
+    /// Adicionalmente tenemos el ejemplo de como suscribirnos a los eventos OnClickInvalidate, OnClickBefore y OnClickAfter del "ToolStripMenuItemBase"
     /// </summary>
     public class BindFormGetOpcionesDocumentosVenta : BindFormBase
     {
@@ -80,7 +80,8 @@ namespace sage.addons.EjemAddons.Visual.BindForm
 
         #region Métodos privados
         /// <summary>
-        /// Ejemplo de como añadir opciones al menú contextual de herramientas de los formularios de Sage 50
+        /// Ejemplo de como modificar opciones del menú contextual de herramientas de los formularios de Sage 50
+        /// y gestionar las acciones al suscribirnos a los 3 eventos disponibles para gestionar la invalidación de una acción
         /// </summary>
         /// <param name="toEnventArgOpciones">EventArgs con las opciones del ContextMenu</param>
         private void BindFormGetOpcionesDocumentosVenta__GetOpciones(EventArgsOpciones toEnventArgOpciones)
@@ -130,7 +131,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
             // Bloquear una opción de menú en función del día y presentando un aviso
             if (lcText.Contains("contado") && DateTime.Now.Date.Day < 15)
             {
-                tlCancel = true;
+                tlCancel = true; // Asignamos el valor "true" a "tlCancel" para cancelar la ejecución de la acción
                 MessageBox.Show($"OnClickInvalidate del ítem {lcText}. Acción no permitida hasta que hasta el día 15 de cada mes.");
                 return;
             }
