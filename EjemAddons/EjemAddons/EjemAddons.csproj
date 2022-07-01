@@ -89,6 +89,7 @@
     <Compile Include="SageAddons.cs" />
     <Compile Include="Visual\BindForm\BindFormBase.cs" />
     <Compile Include="Visual\BindForm\BindFormEventosClick.cs" />
+    <Compile Include="Visual\BindForm\BindFormGetOpcionesAsientos.cs" />
     <Compile Include="Visual\BindForm\BindFormGetOpcionesDocumentosVenta.cs" />
     <Compile Include="Visual\BindForm\BindFormGetOpcionesHerramientas.cs" />
     <Compile Include="Visual\UserControls\usercontrolConfig.cs">
