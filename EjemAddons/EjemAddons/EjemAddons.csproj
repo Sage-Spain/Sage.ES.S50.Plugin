@@ -87,6 +87,7 @@
     <Compile Include="Negocio\Clases\classConfig.cs" />
     <Compile Include="Negocio\Clases\UpdateAddonHosting.cs" />
     <Compile Include="Negocio\Diagnostico\DesviacionCambio.cs" />
+    <Compile Include="Negocio\Diagnostico\EjemploPrueba.cs" />
     <Compile Include="SageAddons.cs" />
     <Compile Include="Visual\BindForm\BindFormBase.cs" />
     <Compile Include="Visual\BindForm\BindFormEventosClick.cs" />
