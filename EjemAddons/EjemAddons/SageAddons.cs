@@ -181,6 +181,9 @@ namespace sage.addons.EjemAddons
                 default:
                     break;
             }
+
+            //Ejemplo eventos txtserie
+            BindFormAlltxtSerie loBindFormAlltxtSerie = new BindFormAlltxtSerie(_formBase);
         }
 
         /// <summary>

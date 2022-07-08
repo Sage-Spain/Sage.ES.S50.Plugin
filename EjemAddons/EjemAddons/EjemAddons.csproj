@@ -37,6 +37,10 @@
     <Reference Include="sage.ew.db">
       <HintPath>sage.ew.db.dll</HintPath>
     </Reference>
+    <Reference Include="sage.ew.docsven, Version=50.7760.0.156, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\librerias\sage.ew.docsven.dll</HintPath>
+    </Reference>
     <Reference Include="sage.ew.ewbase">
       <HintPath>sage.ew.ewbase.dll</HintPath>
     </Reference>
@@ -88,6 +92,7 @@
     <Compile Include="Negocio\Clases\UpdateAddonHosting.cs" />
     <Compile Include="SageAddons.cs" />
     <Compile Include="Visual\BindForm\BindFormBase.cs" />
+    <Compile Include="Visual\BindForm\BindFormAlltxtSerie.cs" />
     <Compile Include="Visual\BindForm\BindFormEventosClick.cs" />
     <Compile Include="Visual\BindForm\BindFormGetOpcionesAsientos.cs" />
     <Compile Include="Visual\BindForm\BindFormGetOpcionesDocumentosVenta.cs" />
