@@ -37,10 +37,11 @@ namespace sage.ew.EjemAddons.Diagnostico
         {
             string lcSql;
 
-            //Consulta a realizar
+            //Ejemplo de consulta a realizar: lista de clientes que no tienen código de vendedor asignado
             lcSql = $@"
-                    SELECT .... 
-                    ";
+                    SELECT CODIGO AS CLIENTE, NOMBRE FROM {DB.SQLDatabase("GESTION", "CLIENTES")} 
+                    WHERE VENDEDOR = '' ORDER BY CODIGO";
+
 
             //Utilizando el método EvaluarQueryPorNumeroRegistros devolvemos una lista con los resultados de la prueba, este método ejecuta la consulta y comprueba si el número de registros coincide con el valor pasado por parámetro.
             //En este caso solamente devolveremos un IResultadoPruebaDiagnostica pero podríamos devolver más de uno si nos interesase.
