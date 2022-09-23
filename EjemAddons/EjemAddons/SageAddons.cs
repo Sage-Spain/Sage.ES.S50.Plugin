@@ -4,6 +4,7 @@ using sage.ew.ewbase;
 using sage.ew.formul;
 using sage.ew.formul.Forms;
 using sage.ew.interficies;
+using Sage.ES.S50.Addons;
 using System;
 using System.Data;
 using System.Reflection;
@@ -84,6 +85,39 @@ namespace sage.addons.EjemAddons
             }
 
             return loInstancia;
+        }
+
+        /// <summary>
+        /// Método para obtener las instancias de clases de extensiones desde los documentos y mantenimientos
+        /// </summary>
+        /// <param name="_key">Nombre por el que identificar el mantenimiento</param>
+        /// <returns></returns>
+        public override object _Extension(string _key)
+        {
+            object loInstancia = null;
+
+            _key = _key.ToLower().Trim();
+
+            switch (_key)
+            {
+                case "facturaventa":
+                    loInstancia = new EjemExtFactuven();
+                    break;
+
+                case "albaranventa":
+                    loInstancia = new EjemExtAlbaven();
+                    break;
+
+                case "pedidoventa":
+                    loInstancia = new EjemExtPediven();
+                    break;
+
+                default:
+                    break;
+            }
+
+            return loInstancia;
+
         }
 
         /// <summary>
@@ -254,5 +288,27 @@ namespace sage.addons.EjemAddons
         }
 
         #endregion MÉTODOS
+    }
+
+    /// <summary>
+    /// Clase estática para propiedades del addon
+    /// </summary>
+    public static class EJEMADDONS
+    {
+        /// <summary>
+        /// Nombre del addon que servirá para buscar la instancia dentro del diccionario EW_GLOBAL._addons
+        /// </summary>
+        public static string _NombreAddOn = "EJEMADDONS";
+
+        /// <summary>
+        /// Devuelve la instancia del objeto principal del módulo de dentro de la Global 
+        /// </summary>
+        /// <returns></returns>
+        public static EjemAddons _Get_Objeto_Modulo()
+        {
+            object loObjeto = AddonsController.Instance.AddonsManager.GetAddon(_NombreAddOn);
+            return (loObjeto is EjemAddons) ? (EjemAddons)loObjeto : null;
+        }
+
     }
 }

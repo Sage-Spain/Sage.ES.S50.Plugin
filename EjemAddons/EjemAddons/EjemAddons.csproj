@@ -89,6 +89,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Negocio\Clases\classConfig.cs" />
+    <Compile Include="Negocio\Clases\EjemExtAlbaven.cs" />
+    <Compile Include="Negocio\Clases\EjemExtFactuven.cs" />
+    <Compile Include="Negocio\Clases\EjemExtPediven.cs" />
+    <Compile Include="Negocio\Clases\EjemVentasBase.cs" />
     <Compile Include="Negocio\Clases\UpdateAddonHosting.cs" />
     <Compile Include="Negocio\Diagnostico\DesviacionCambio.cs" />
     <Compile Include="Negocio\Diagnostico\EjemploPrueba.cs" />
