@@ -39,9 +39,11 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// <summary>
         /// Objeto de la clase de negocio al que esta vinculado el formulario asistente y sobre el cual se irán volcando los diferentes 
         /// configuraciones que vaya estableciendo el usuario en los diferentes pasos del asistente, para en el momento de la ejecución
-        /// del proceso (usuario pulse el botón Empezar) tenga
+        /// del proceso (usuario pulse el botón Empezar) tenga todo lo necesario para ejecutar el proceso. 
+        /// 
+        /// El proceso en sí también lo ejecutará esta clase.
         /// </summary>
-        private Negocio.Clases.Importacion _oImportacion = null;
+        private Negocio.Clases.Importacion _oImportacion = new Negocio.Clases.Importacion();
 
 
         /// <summary>
@@ -751,8 +753,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
 
                 // Ejecutar proceso del asistente.
                 //
-                //_lImportacionFinalizadaOk = _oImportacion._Importar(toWorker);
-                _lImportacionFinalizadaOk = true;
+                _lImportacionFinalizadaOk = _oImportacion._Importar(toWorker);
                 if (toWorker.CancellationPending)
                     return true;
 
