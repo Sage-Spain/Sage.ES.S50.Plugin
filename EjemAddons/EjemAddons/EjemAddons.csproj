@@ -34,6 +34,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="sage.es.s50.addons, Version=50.7780.0.69, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Librerias\sage.es.s50.addons.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.articulo, Version=50.7780.0.69, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Librerias\sage.ew.articulo.dll</HintPath>
+    </Reference>
     <Reference Include="sage.ew.db">
       <HintPath>sage.ew.db.dll</HintPath>
     </Reference>
@@ -41,8 +49,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\librerias\sage.ew.docsven.dll</HintPath>
     </Reference>
-    <Reference Include="sage.ew.ewbase">
-      <HintPath>sage.ew.ewbase.dll</HintPath>
+    <Reference Include="sage.ew.docventatpv, Version=50.7780.0.69, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Librerias\sage.ew.docventatpv.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.ewbase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Librerias\sage.ew.ewbase.dll</HintPath>
     </Reference>
     <Reference Include="sage.ew.functions">
       <HintPath>sage.ew.functions.dll</HintPath>
@@ -92,6 +105,7 @@
     <Compile Include="Negocio\Clases\EjemExtAlbaven.cs" />
     <Compile Include="Negocio\Clases\EjemExtFactuven.cs" />
     <Compile Include="Negocio\Clases\EjemExtPediven.cs" />
+    <Compile Include="Negocio\Clases\EjemAsistente.cs" />
     <Compile Include="Negocio\Clases\EjemVentasBase.cs" />
     <Compile Include="Negocio\Clases\UpdateAddonHosting.cs" />
     <Compile Include="Negocio\Diagnostico\DesviacionCambio.cs" />
@@ -104,6 +118,48 @@
     <Compile Include="Visual\BindForm\BindFormGetOpcionesDocumentosVenta.cs" />
     <Compile Include="Visual\BindForm\BindFormGetOpcionesHerramientas.cs" />
     <Compile Include="Visual\BindForm\BindFormGetOpcionesListasPrevias.cs" />
+    <Compile Include="Visual\Forms\frmEjemAsistente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visual\Forms\frmEjemAsistente.designer.cs">
+      <DependentUpon>frmEjemAsistente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaFinal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaFinal.designer.cs">
+      <DependentUpon>EjemAsistente_PaginaFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaInicial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaInicial.designer.cs">
+      <DependentUpon>EjemAsistente_PaginaInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaPaso3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaPaso3.designer.cs">
+      <DependentUpon>EjemAsistente_PaginaPaso3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaPaso2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaPaso2.designer.cs">
+      <DependentUpon>EjemAsistente_PaginaPaso2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaPaso1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaPaso1.designer.cs">
+      <DependentUpon>EjemAsistente_PaginaPaso1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaProceso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visual\UserControls\EjemAsistente_PaginaProceso.designer.cs">
+      <DependentUpon>EjemAsistente_PaginaProceso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visual\UserControls\usercontrolConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,7 +176,6 @@
     <Folder Include="Negocio\Listados\" />
     <Folder Include="Negocio\Mantes\" />
     <Folder Include="sage.ew.reports\personalizados\" />
-    <Folder Include="Visual\Forms\" />
     <Folder Include="Visual\Reports\" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +183,24 @@
     <Content Include="sage.ew.reports\base\template.template" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Visual\UserControls\EjemAsistente_PaginaFinal.resx">
+      <DependentUpon>EjemAsistente_PaginaFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\UserControls\EjemAsistente_PaginaInicial.resx">
+      <DependentUpon>EjemAsistente_PaginaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\UserControls\EjemAsistente_PaginaPaso3.resx">
+      <DependentUpon>EjemAsistente_PaginaPaso3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\UserControls\EjemAsistente_PaginaPaso2.resx">
+      <DependentUpon>EjemAsistente_PaginaPaso2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\UserControls\EjemAsistente_PaginaPaso1.resx">
+      <DependentUpon>EjemAsistente_PaginaPaso1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visual\UserControls\EjemAsistente_PaginaProceso.resx">
+      <DependentUpon>EjemAsistente_PaginaProceso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visual\UserControls\usercontrolConfig.resx">
       <DependentUpon>usercontrolConfig.cs</DependentUpon>
     </EmbeddedResource>
