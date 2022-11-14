@@ -1,31 +1,83 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32319.34
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjemAddons", "EjemAddons\EjemAddons.csproj", "{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8} = {A35DCC32-761A-4929-A66D-AB0A60A7C6D8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "main", "main\main.csproj", "{035F95D8-8FF6-48FA-91FC-E39FE3F839BA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9} = {CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8} = {A35DCC32-761A-4929-A66D-AB0A60A7C6D8}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sage.ew.ewbase", "..\..\..\..\..\tfs\Sage.ES.Sage50\main\Sage.ES.S50\sage.ew.ewbase\sage.ew.ewbase.csproj", "{A35DCC32-761A-4929-A66D-AB0A60A7C6D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imexasi", "..\..\..\..\..\tfs\Sage.ES.Sage50\main\Sage.ES.S50\addons\imexasi\imexasi.csproj", "{D961CB7C-9066-4142-8DF0-973C7553DE55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}.Debug|x86.Build.0 = Debug|Any CPU
 		{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}.Release|x86.ActiveCfg = Release|Any CPU
+		{CF6B1B15-5EDC-42CC-BAB4-6EAF0DD256D9}.Release|x86.Build.0 = Release|Any CPU
 		{035F95D8-8FF6-48FA-91FC-E39FE3F839BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{035F95D8-8FF6-48FA-91FC-E39FE3F839BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035F95D8-8FF6-48FA-91FC-E39FE3F839BA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{035F95D8-8FF6-48FA-91FC-E39FE3F839BA}.Debug|x86.Build.0 = Debug|Any CPU
 		{035F95D8-8FF6-48FA-91FC-E39FE3F839BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{035F95D8-8FF6-48FA-91FC-E39FE3F839BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035F95D8-8FF6-48FA-91FC-E39FE3F839BA}.Release|x86.ActiveCfg = Release|Any CPU
+		{035F95D8-8FF6-48FA-91FC-E39FE3F839BA}.Release|x86.Build.0 = Release|Any CPU
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8}.Debug|x86.ActiveCfg = Debug|x86
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8}.Debug|x86.Build.0 = Debug|x86
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8}.Release|x86.ActiveCfg = Release|x86
+		{A35DCC32-761A-4929-A66D-AB0A60A7C6D8}.Release|x86.Build.0 = Release|x86
+		{D961CB7C-9066-4142-8DF0-973C7553DE55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D961CB7C-9066-4142-8DF0-973C7553DE55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D961CB7C-9066-4142-8DF0-973C7553DE55}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D961CB7C-9066-4142-8DF0-973C7553DE55}.Debug|x86.Build.0 = Debug|Any CPU
+		{D961CB7C-9066-4142-8DF0-973C7553DE55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D961CB7C-9066-4142-8DF0-973C7553DE55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D961CB7C-9066-4142-8DF0-973C7553DE55}.Release|x86.ActiveCfg = Release|Any CPU
+		{D961CB7C-9066-4142-8DF0-973C7553DE55}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55BF9019-4865-4634-91CA-45614D2BEE14}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.sagespain.adinternal.com:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = ..\\..\\..\\..\\..\\tfs\\Sage.ES.Sage50\\main\\Sage.ES.S50\\sage.ew.ewbase\\sage.ew.ewbase.csproj
+		SccProjectName0 = $/Sage.ES.Sage50/main/Sage.ES.S50/sage.ew.ewbase
+		SccAuxPath0 = http://tfs.sagespain.adinternal.com:8080/tfs/defaultcollection
+		SccLocalPath0 = ..\\..\\..\\..\\..\\tfs\\Sage.ES.Sage50\\main\\Sage.ES.S50\\sage.ew.ewbase
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = ..\\..\\..\\..\\..\\tfs\\Sage.ES.Sage50\\main\\Sage.ES.S50\\addons\\imexasi\\imexasi.csproj
+		SccProjectName1 = $/Sage.ES.Sage50/main/Sage.ES.S50/addons/imexasi
+		SccAuxPath1 = http://tfs.sagespain.adinternal.com:8080/tfs/defaultcollection
+		SccLocalPath1 = ..\\..\\..\\..\\..\\tfs\\Sage.ES.Sage50\\main\\Sage.ES.S50\\addons\\imexasi
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
 EndGlobal
