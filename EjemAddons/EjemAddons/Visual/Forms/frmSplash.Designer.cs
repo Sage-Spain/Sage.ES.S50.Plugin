@@ -44,7 +44,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(495, 29);
             this.label2.TabIndex = 33;
-            this.label2.Text = "Ejemplos de implementación via SDK Sage 50";
+            this.label2.Text = "Ejemplos de implementación vía SDK Sage 50";
             // 
             // label1
             // 
