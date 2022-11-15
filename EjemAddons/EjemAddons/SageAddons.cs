@@ -67,6 +67,20 @@ namespace sage.addons.EjemAddons
             return new UpdateAddonHosting();
         }
 
+
+        /// <summary>
+        /// Método que se invoca al finalizar la carga del escritorio de Sage50 por si el addon requiere operaciones en un tiempo
+        /// que equivaldría al OnShown de un formulario. En este caso de ejemplo, mostraremos un formulario de splash.
+        /// </summary>
+        /// <param name="toSender">Objeto que realiza la invocación.</param>
+        public override void _ShowOnDesktopLoad(object toSender)
+        {
+            Visual.Forms.frmSplash loForm = new Visual.Forms.frmSplash();
+            loForm.ShowDialog();
+
+            return;
+        }
+
         /// <summary>
         /// Devuelve la lista prévia del documento
         /// </summary>

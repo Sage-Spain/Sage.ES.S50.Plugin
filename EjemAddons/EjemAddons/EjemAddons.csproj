@@ -124,6 +124,12 @@
     <Compile Include="Visual\Forms\frmEjemAsistente.designer.cs">
       <DependentUpon>frmEjemAsistente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visual\Forms\frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visual\Forms\frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visual\UserControls\EjemAsistente_PaginaFinal.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     <Content Include="sage.ew.reports\base\template.template" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Visual\Forms\frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visual\UserControls\EjemAsistente_PaginaFinal.resx">
       <DependentUpon>EjemAsistente_PaginaFinal.cs</DependentUpon>
     </EmbeddedResource>
