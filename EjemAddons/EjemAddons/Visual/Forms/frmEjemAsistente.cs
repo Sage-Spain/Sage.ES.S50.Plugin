@@ -5,15 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Sage50
-using sage.ew.ewbase;
 using sage.ew.ewbase.Clases;
 using sage.ew.ewbase.Forms;
 using sage.ew.ewbase.UserControls;
-using sage.ew.formul;
 using sage.ew.functions;
 using sage.ew.global;
 

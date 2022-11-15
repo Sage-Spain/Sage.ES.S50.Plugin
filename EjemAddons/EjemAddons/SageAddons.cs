@@ -1,15 +1,10 @@
-﻿using sage.addons.EjemAddons.Negocio.Clases;
-using sage.addons.EjemAddons.Visual.BindForm;
+﻿using System;
+using System.Data;
 using sage.ew.ewbase;
-using sage.ew.formul;
-using sage.ew.formul.Forms;
 using sage.ew.interficies;
 using Sage.ES.S50.Addons;
-using System;
-using System.Data;
-using System.Reflection;
-using System.Windows.Forms;
-
+using sage.addons.EjemAddons.Negocio.Clases;
+using sage.addons.EjemAddons.Visual.BindForm;
 
 /// <summary>
 /// Este es el espacio de nombres de su módulo.
