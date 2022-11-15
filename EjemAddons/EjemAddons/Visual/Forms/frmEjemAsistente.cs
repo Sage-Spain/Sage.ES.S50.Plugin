@@ -54,8 +54,11 @@ namespace sage.addons.EjemAddons.Visual.Forms
 
 
         /// <summary>
-        /// Referencia al backgroundworker relacionado con el asistente. Se utiliza para ejecutar código cada vez que el usuario pulsa
-        /// 'Siguiente' para avanzar a la siguiente página.
+        /// Referencia al backgroundworker relacionado con el asistente. 
+        /// 
+        /// Se utiliza internamente para ejecutar código cada vez que el usuario pulsa 'Siguiente' para avanzar a la siguiente página.
+        /// También se utiliza para ejecutar el proceso del asistente en la página Proceso y también para cancelar la ejecución de dicho
+        /// proceso mientras se está ejecutando.
         /// </summary>
         private BackgroundWorker _oWorker = null;
 
@@ -107,12 +110,11 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// </summary>
         public frmEjemAsistente()
         {
-            // No permitir acceso en empresas consolidadas.
+            // En función de si se permite ejecutar el proceso del asistente en empresas consolidadas, dejar o eliminar este control.
             //
             if (Convert.ToBoolean(EW_GLOBAL._GetVariable("wl_normal")) == false)
             {
-                FUNCTIONS._MessageBox("En una empresa consolidada no se puede (crear el proceso del Asistente <- cambiar el texto)." + Environment.NewLine + Environment.NewLine +
-                                      "Opción no disponible.", "Proceso <- cambiar el texto", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                FUNCTIONS._MessageBox("Opción no disponible en una empresa consolidada.", "Proceso importación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 return;
             }
@@ -177,7 +179,8 @@ namespace sage.addons.EjemAddons.Visual.Forms
             //
             this._FinalizarSinSalir = true;
 
-            // Para poder indicar que no queremos utilizar la barra de progreso del asistente.
+            // Para poder indicar que no queremos utilizar la barra de progreso del asistente (caso de utilizarse, aparecerá en la parte
+            // izquierda inferior del asistente).
             //
             this._UtilizarBarraProgreso = false;  
 
@@ -446,13 +449,15 @@ namespace sage.addons.EjemAddons.Visual.Forms
 
 
         /// <summary>
-        /// Evento que se ejecuta para refrescar la barra de progreso al recibir las notificaciones de progresos mediante 
+        /// Evento que se ejecuta para refrescar la barra de progreso al recibir las notificaciones de progreso mediante 
         /// backgroundworker.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected override void _BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            base._BackgroundWorker_ProgressChanged(sender, e);
+
             if (_oUsrCtrlPagProceso != null)
             {
                 _oUsrCtrlPagProceso._TextProgreso = _oImportacion._TextStep;
@@ -627,10 +632,10 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// Método que se dispara al clickar en el botón Siguiente, para realizar las validaciones pertinentes antes de pasar a la 
         /// siguiente página, o cualquier otra acción que interese realizar previamente al siguiente paso. 
         /// 
-        /// Solo se ejecuta en los pasos previos a la página que ejecuta el proceso del asistente.
+        /// Solo se ejecuta en los páginas del asistente anteriores a la página que ejecuta el proceso del asistente.
         /// </summary>       
         /// <param name="toPagina">Pagina del asistente que se trata de abandonar cuando se ha pulsado el botón Siguiente.</param>
-        /// <param name="toWorker">Objeto BackGroundWorder.</param>
+        /// <param name="toWorker">Objeto BackgroundWorker.</param>
         /// <returns></returns>
         protected override bool _SaveWizardPage(PaginaPasoWizard toPagina, BackgroundWorker toWorker)
         {
@@ -650,6 +655,9 @@ namespace sage.addons.EjemAddons.Visual.Forms
 
             // Realizar las acciones y validaciones pertinentes antes de pasar a la siguiente página, o cualquier otra acción que
             // interese realizar previamente al siguiente paso.
+            //
+            // Si en alguna página no se cumplen las condiciones necesarias para pasar al siguiente paso, el método llamado para
+            // validar la página deberá devolver false.
             //
             string lcPagina = toPagina._NombrePagina;
             
