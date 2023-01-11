@@ -296,6 +296,27 @@ namespace sage.addons.EjemAddons
             return base._Apertura(tcEjerAnt, tcEjerActual);
         }
 
+        /// <summary>
+        /// En este método el usuario final se podrá suscribirse al evento OnUpdateStocks que se dispara en el método _Update de la clase Update_Stocks
+        /// </summary>
+        /// <param name="stocks"></param>
+        public override void _BindUpdateStocks(IUpdateStocks stocks)
+        {
+            //Ejemplo de como subscribirse al evento que se disparará en el método _Update de la clase Update_Stocks
+            stocks._OnUpdateStocks += Stocks__OnUpdateStocks;
+
+            base._BindUpdateStocks(stocks);
+        }
+
+        /// <summary>
+        /// Evento que se ejecutará en el  _Update de la clase Update_Stocks
+        /// </summary>
+        /// <param name="sender"></param>
+        private void Stocks__OnUpdateStocks(IUpdateStocks sender)
+        {
+            
+        }
+
         #endregion MÉTODOS
     }
 

@@ -81,6 +81,7 @@
     <Reference Include="sage.ew.objetos">
       <HintPath>sage.ew.objetos.dll</HintPath>
     </Reference>
+    <Reference Include="sage.ew.stocks, Version=50.7790.0.55, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="sage.ew.txtbox">
       <HintPath>sage.ew.txtbox.dll</HintPath>
     </Reference>
