@@ -124,7 +124,7 @@ namespace sage.addons.EjemAddons.Negocio.Clases
             if (_oWorker != null && totalSteps > 0)
             {
                 // Calculamos el progreso relativo a la barra teniendo en cuenta que la barra va de 0 a 100 %.
-                //
+
                 stepActual++;
                 int lnProgresoRelativo100 = (stepActual * 100) / totalSteps;
 
@@ -151,10 +151,10 @@ namespace sage.addons.EjemAddons.Negocio.Clases
 
 
         /// <summary>
-        /// Escribir detalle importación y log.
+        /// Método para escribir detalle importación y log.
         /// </summary>
-        /// <param name="tcTexto"></param>
-        /// <param name="teTipo"></param>
+        /// <param name="tcTexto">Texto a escribir en el log.</param>
+        /// <param name="teTipo">Tipo de validación/incidencia.</param>
         private void EscribirLog(string tcTexto, TipoValidacion teTipo)
         {
             _TextStepDetalle = tcTexto;
@@ -169,27 +169,18 @@ namespace sage.addons.EjemAddons.Negocio.Clases
 
 
         /// <summary>
-        /// Importar datos a Force Manager CRM
+        /// Método para importar datos a ForceManager CRM
         /// </summary>        
         /// <returns></returns>
         public bool _Importar(BackgroundWorker toWorker = null)
         {
             _oWorker = toWorker;
 
-            //_TotalSteps = 1 + ( (ISVobjetoImportar1) != null && ISVobjetoImportar1.Count > 0 ? 1 : 0) + (ISVobjetoImportar2 != null && ISVobjetoImportar2.Count > 0 ? 1 : 0) + 2;
-
             stepActual = 0;
+
             EscribirLog("Inicio importación", TipoValidacion.Ok);
 
-            //_InicializarImportacion();
-
-            //_RevisarCuentasEquivalentes();
-
-            //_ImportarDatos()
-
             EscribirLog("La importación ha terminado", TipoValidacion.Ok);
-
-            //SaveResults();
 
             EscribirLog("Logs guardados", TipoValidacion.Ok);
 
@@ -208,18 +199,19 @@ namespace sage.addons.EjemAddons.Negocio.Clases
     {
         #region PROPIEDADES PRIVADAS
         
+
         /// <summary>
-        /// 
+        /// Tipo de validación/incidencia.
         /// </summary>
         private TipoValidacion _eTipoValidacion = TipoValidacion.Ok;
 
 
         /// <summary>
-        /// 
+        /// Descripción detallada del error de validación.
         /// </summary>
         private string _cDescripcion = string.Empty;
-        
-        
+
+
         #endregion PROPIEDADES PRIVADAS
 
 
@@ -227,7 +219,7 @@ namespace sage.addons.EjemAddons.Negocio.Clases
 
 
         /// <summary>
-        /// Identifica el tipo de incidencia.
+        /// Tipo de validación/incidencia.
         /// </summary>
         public TipoValidacion _TipoIncidencia
         {
@@ -265,7 +257,7 @@ namespace sage.addons.EjemAddons.Negocio.Clases
 
 
         /// <summary>
-        /// Constructor vacio
+        /// Constructor vacío
         /// </summary>
         public IncidenciaImportacion()
         {
@@ -286,6 +278,7 @@ namespace sage.addons.EjemAddons.Negocio.Clases
 
         #endregion CONSTRUCTORES
     }
+
 
     /// <summary>
     /// Enumeración de tipos de validación.
