@@ -47,25 +47,27 @@ namespace sage.addons.EjemAddons.Negocio.Clases
             loOrigen._ColumnaGrid._Width = 4;
             loOrigen._ColumnaGrid._MaxInputLength = 2;
             loOrigen._Traspasable = true;
-            //loOrigen._ColumnaGrid._Mascara = ""new ewMascara("99999");
             loOrigen._ColumnaGrid._ReadOnly = false;
         }
 
+        /// <summary>
+        /// Este evento se dispara después de vincular el mantegrid del documento
+        /// </summary>
         public override void _Mantegrid_Vinculado()
         {
             base._Mantegrid_Vinculado();
-            //_Mantegrid._BeforeColChange += new ew.objetos.UserControls.Mantegrid._BeforeColChange_Handler(mantegridLinies__BeforeColChange);
-            //_Mantegrid._Grid.CellBeginEdit += new DataGridViewCellCancelEventHandler(_Grid_CellBeginEdit);
-            //_Mantegrid._Grid.CellEnter += _Grid_CellEnter;
-            //_Mantegrid._Grid.CellFormatting += _Grid_CellFormatting;
-            //_Mantegrid._KeyPress += new ew.objetos.UserControls.Mantegrid._KeyPress_Handler(_Grid_KeyPress);
         }
-        
+
+        /// <summary>
+        /// Actualización de información al realizar el traspaso entre documentos
+        /// </summary>
+        /// <param name="toExtensionDestino">Extensión destino</param>
+        /// <param name="toLineaOrigen">Línea de origen del documento</param>
+        /// <param name="toLineaDestino">Línea destino del documento</param>
+        /// <param name="tlVisualLayer">Indica si el traspaso de la información se realiza a través del formulario visual 'frmTraspaso'</param>
+        /// <returns>Devuelve true si ha realizado la actualización</returns>
         public override bool _LineaToDocumento(IExtensionDocsDocumento toExtensionDestino, dynamic toLineaOrigen, dynamic toLineaDestino, bool tlVisualLayer = true)
         {
-            // Con fecha 6/9/19, por este metodo solamente pasa una vez por tanto lo ejecutamos
-            // cuando es Before, seria lo mismo no poner la condición , pero por si a caso
-
             if (_eBeforeAfter == TipoExecute.Before)
             {
                 if ((toLineaOrigen == null) || (toLineaDestino == null) || (toExtensionDestino == null))
@@ -117,11 +119,11 @@ namespace sage.addons.EjemAddons.Negocio.Clases
                                 decimal lnUnitsServ = Convert.ToDecimal(loPropiedad);
                                 lnUnitsServ = lnUnitsServ - Convert.ToDecimal(loPropiedad);
 
-                                // Actualizamos la Extension Destino Pedido de venta
+                                // Actualizamos la extensión Destino - Pedido de venta
                                 loExtensionLineaDestino._SetPropertyValue("_UnitsServ", lnUnitsServ);
                                 loExtensionLineaDestino._SetPropertyValue("_Unitstrasp", 0.0M);
 
-                                // Actualizamos la Extension Origen - Pediven
+                                // Actualizamos la extensión Origen - Pediven
                                 lcPropertyName = "_UnitsServ";
                                 loPropiedadServ = loExtensionLineaOrigen._GetPropertyValue(lcPropertyName);
                                 lnUnitsServ = Convert.ToDecimal(loPropiedadServ);

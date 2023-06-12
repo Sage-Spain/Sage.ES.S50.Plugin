@@ -159,19 +159,15 @@ namespace sage.addons.EjemAddons.Negocio.Clases
             {
                 if (_eBeforeAfter == TipoExecute.Before)
                 {
-
                     // 1.- _Mantegrid._Grid.DataSource 
-                    //     es una vista del grid amb tots els registres que veiem per pantalla
-
+                    //     es una vista del grid con todos los registros que vemos por pantalla.
                     // 2.- BindingList<ewDocVentaLinPED> lo = (BindingList<ewDocVentaLinPED>)_Mantegrid._Grid.DataSource
-                    //     El objecte lo -> contendra els registres del grid
-
-                    // 3.-    _Lineas , tenim les linies de la extensió.
-                    // 3.1    _ExtensionDocumentoLinea loLinia = (_ExtensionDocumentoLinea)_Lineas[i];
-                    // 3.2    lnTipo = ((sage.ew.docsven.ewDocVentaLinPED)loLinia._LineaDocumento)._Doc
-                    // 3.3    int lnTipo = loLinia._Documento._Lineas[i]._Doc;
-                    // Les linies 3.2 o 3.3 fan el mateix
-
+                    //     El objeto lo -> contendrá los registros del grid.
+                    // 3.- _Lineas, tenemos las líneas de la extensión.
+                    //  3.1 _ExtensionDocumentoLinea loLinia = (_ExtensionDocumentoLinea)_Lineas[i];
+                    //  3.2 lnTipo = ((sage.ew.docsven.ewDocVentaLinPED)loLinia._LineaDocumento)._Doc
+                    //  3.3 int lnTipo = loLinia._Documento._Lineas[i]._Doc;
+                    // Las líneas 3.2 o 3.3 hacen lo mismo
 
                     for (int i = _Lineas.Count - 1; i > -1; i--)
                     {
