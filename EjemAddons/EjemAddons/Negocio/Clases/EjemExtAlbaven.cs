@@ -55,8 +55,8 @@ namespace sage.addons.EjemAddons.Negocio.Clases
         /// <returns></returns>
         public override bool _Delete_Linea(IDocumentLinea toLineaDocumento)
         {
-            string lcSql       = "";
-            decimal lnPiezas   = 0.0M;
+            string lcSql = "";
+            decimal lnPiezas = 0.0M;
             string lcTablaDest = "";
 
             _ExtensionDocumentoLinea loLiniaAs = null;
@@ -94,7 +94,7 @@ namespace sage.addons.EjemAddons.Negocio.Clases
                         break;
                 }
                 if (!string.IsNullOrWhiteSpace(lcTablaDest))
-                { 
+                {
                     string lcEmpresa = loLinAlb._Empresa;
                     string lcNumero = loLinAlb._Doc_Num.Substring(0, 10);
                     string lcLetra = loLinAlb._Doc_Num.Substring(10);
@@ -102,7 +102,7 @@ namespace sage.addons.EjemAddons.Negocio.Clases
                     decimal lnUnitServ = 0.0M;
                     DataTable ldtAlbaven = new DataTable();
 
-                    lcSql = "Select UnitsServ From " + DB.SQLDatabase(_DataBaseAddon,lcTablaDest) +
+                    lcSql = "Select UnitsServ From " + DB.SQLDatabase(_DataBaseAddon, lcTablaDest) +
                             " Where EJERCICIO = " + DB.SQLString(_cAny) +
                             " and empresa = " + DB.SQLString(lcEmpresa) +
                             " and numero = " + DB.SQLString(lcNumero) +
@@ -116,7 +116,7 @@ namespace sage.addons.EjemAddons.Negocio.Clases
                     {
                         lnUnitServ = Convert.ToDecimal(ldtAlbaven.Rows[0]["UnitsServ"]);
                         lnUnitServ = lnUnitServ - lnPiezas;
-                        lcSql = "Update " + DB.SQLDatabase(_DataBaseAddon, lcTablaDest ) +
+                        lcSql = "Update " + DB.SQLDatabase(_DataBaseAddon, lcTablaDest) +
                                     " Set UnitsServ = " + DB.SQLString(lnUnitServ) +
                                     " Where EJERCICIO = " + DB.SQLString(_cAny) +
                                     " and empresa = " + DB.SQLString(lcEmpresa) +
@@ -130,15 +130,28 @@ namespace sage.addons.EjemAddons.Negocio.Clases
             }
             if (deleted)
             {
-               deleted = base._Delete_Linea(toLineaDocumento);
+                deleted = base._Delete_Linea(toLineaDocumento);
             }
             return deleted;
         }
 
+        /// <summary>
+        /// Método que se ejecuta cuando el usuario carga en memoria un documento 
+        /// </summary>
+        /// <param name="tcEmpresa">empresa</param>
+        /// <param name="tcNumero">número</param>
+        /// <param name="tcClave3">clave3</param>
+        /// <returns></returns>
         public override bool _Load(string tcEmpresa, string tcNumero, string tcClave3 = "")
         {
             return base._Load(tcEmpresa, tcNumero, tcClave3);
         }
+
+        /// <summary>
+        /// Método que se ejecuta cuando el usuario guarda un documento
+        /// </summary>
+        /// <param name="tbForzarGuardarLineas">Si se pasa true, guardará todas las líneas</param>
+        /// <returns></returns>       
         public override bool _Save(bool tbForzarGuardarLineas = false)
         {
             return base._Save(tbForzarGuardarLineas);
@@ -159,19 +172,15 @@ namespace sage.addons.EjemAddons.Negocio.Clases
             {
                 if (_eBeforeAfter == TipoExecute.Before)
                 {
-
                     // 1.- _Mantegrid._Grid.DataSource 
-                    //     es una vista del grid amb tots els registres que veiem per pantalla
-
+                    //     es una vista del grid con todos los registros que vemos por pantalla.
                     // 2.- BindingList<ewDocVentaLinPED> lo = (BindingList<ewDocVentaLinPED>)_Mantegrid._Grid.DataSource
-                    //     El objecte lo -> contendra els registres del grid
-
-                    // 3.-    _Lineas , tenim les linies de la extensió.
-                    // 3.1    _ExtensionDocumentoLinea loLinia = (_ExtensionDocumentoLinea)_Lineas[i];
-                    // 3.2    lnTipo = ((sage.ew.docsven.ewDocVentaLinPED)loLinia._LineaDocumento)._Doc
-                    // 3.3    int lnTipo = loLinia._Documento._Lineas[i]._Doc;
-                    // Les linies 3.2 o 3.3 fan el mateix
-
+                    //     El objeto lo -> contendrá los registros del grid.
+                    // 3.- _Lineas, tenemos las líneas de la extensión.
+                    //  3.1 _ExtensionDocumentoLinea loLinia = (_ExtensionDocumentoLinea)_Lineas[i];
+                    //  3.2 lnTipo = ((sage.ew.docsven.ewDocVentaLinPED)loLinia._LineaDocumento)._Doc
+                    //  3.3 int lnTipo = loLinia._Documento._Lineas[i]._Doc;
+                    // Las líneas 3.2 o 3.3 hacen lo mismo
 
                     for (int i = _Lineas.Count - 1; i > -1; i--)
                     {
