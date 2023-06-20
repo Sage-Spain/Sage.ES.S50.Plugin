@@ -49,7 +49,7 @@ namespace sage.addons.EjemAddons.Negocio.Clases
         }
 
         /// <summary>
-        /// Elimación de una línea
+        /// Eliminación de una línea
         /// </summary>
         /// <param name="toLineaDocumento"></param>
         /// <returns></returns>
