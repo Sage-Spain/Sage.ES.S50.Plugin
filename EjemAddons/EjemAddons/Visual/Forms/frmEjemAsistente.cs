@@ -131,7 +131,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         {
             // Título que se mostrará en el asistente.
             //
-            _Título = "Importación de datos";
+            _Titulo = "Importación de datos";
 
             // Nombre de pantalla para poder dar o quitar accesos al formulario asistente.
             //
