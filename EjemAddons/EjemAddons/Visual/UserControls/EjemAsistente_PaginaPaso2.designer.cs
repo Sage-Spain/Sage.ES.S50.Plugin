@@ -85,7 +85,7 @@
             this.ewlabel3.Name = "ewlabel3";
             this.ewlabel3.Size = new System.Drawing.Size(733, 44);
             this.ewlabel3.TabIndex = 7;
-            this.ewlabel3.Text = "Pagina Paso 2";
+            this.ewlabel3.Text = "Página Paso 2";
             // 
             // EjemAsistente_PaginaPaso2
             // 

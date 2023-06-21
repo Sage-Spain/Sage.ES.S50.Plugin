@@ -70,7 +70,7 @@
             this.ewlabel2.Name = "ewlabel2";
             this.ewlabel2.Size = new System.Drawing.Size(733, 44);
             this.ewlabel2.TabIndex = 5;
-            this.ewlabel2.Text = "Pagina Inicial";
+            this.ewlabel2.Text = "Página Inicial";
             // 
             // ewlabel4
             // 
