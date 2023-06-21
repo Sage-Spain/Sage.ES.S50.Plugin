@@ -129,9 +129,9 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// </summary>
         private void ConstructorLocal()
         {
-            // Titulo que se mostrará en el asistente.
+            // Título que se mostrará en el asistente.
             //
-            _Titulo = "Importación de datos";
+            _Título = "Importación de datos";
 
             // Nombre de pantalla para poder dar o quitar accesos al formulario asistente.
             //
@@ -284,7 +284,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// <summary>
         /// Método para la carga de la página Inicial del asistente.
         /// 
-        /// Solo se ejecuta la primera vez que se carga la pagina Inicial, una vez añadido el usercontrol a la página por la clase base
+        /// Solo se ejecuta la primera vez que se carga la página Inicial, una vez añadido el usercontrol a la página por la clase base
         /// de este formulario, y se utiliza para realizar cualquier configuración adicional en las propiedades del usercontrol que se ha
         /// añadido o cualquier otra acción que requiera realizar una vez añadido el usercontrol a la página.
         /// </summary>
@@ -299,7 +299,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// <summary>
         /// Método para la carga de la página Paso 1 del asistente.
         /// 
-        /// Solo se ejecuta la primera vez que se carga la pagina Paso 1, una vez añadido el usercontrol a la página por la clase base
+        /// Solo se ejecuta la primera vez que se carga la página Paso 1, una vez añadido el usercontrol a la página por la clase base
         /// de este formulario, y se utiliza para realizar cualquier configuración adicional en las propiedades del usercontrol que se ha
         /// añadido o cualquier otra acción que requiera realizar una vez añadido el usercontrol a la página.
         /// </summary>
@@ -314,7 +314,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// <summary>
         /// Método para la carga de la página Paso 2 del asistente.
         /// 
-        /// Solo se ejecuta la primera vez que se carga la pagina Paso 2, una vez añadido el usercontrol a la página por la clase base
+        /// Solo se ejecuta la primera vez que se carga la página Paso 2, una vez añadido el usercontrol a la página por la clase base
         /// de este formulario, y se utiliza para realizar cualquier configuración adicional en las propiedades del usercontrol que se ha
         /// añadido o cualquier otra acción que requiera realizar una vez añadido el usercontrol a la página.
         /// </summary>
@@ -329,7 +329,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// <summary>
         /// Método para la carga de la página Paso 3 del asistente.
         /// 
-        /// Solo se ejecuta la primera vez que se carga la pagina Paso 3, una vez añadido el usercontrol a la página por la clase base
+        /// Solo se ejecuta la primera vez que se carga la página Paso 3, una vez añadido el usercontrol a la página por la clase base
         /// de este formulario, y se utiliza para realizar cualquier configuración adicional en las propiedades del usercontrol que se ha
         /// añadido o cualquier otra acción que requiera realizar una vez añadido el usercontrol a la página.
         /// </summary>
@@ -344,7 +344,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// <summary>
         /// Método para la carga de la página Proceso del asistente.
         /// 
-        /// Solo se ejecuta la primera vez que se carga la pagina Proceso, una vez añadido el usercontrol a la página por la clase base
+        /// Solo se ejecuta la primera vez que se carga la página Proceso, una vez añadido el usercontrol a la página por la clase base
         /// de este formulario, y se utiliza para realizar cualquier configuración adicional en las propiedades del usercontrol que se ha
         /// añadido o cualquier otra acción que requiera realizar una vez añadido el usercontrol a la página.
         /// </summary>
@@ -367,7 +367,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// <summary>
         /// Método para la carga de la página Final del asistente.
         /// 
-        /// Solo se ejecuta la primera vez que se carga la pagina Final, una vez añadido el usercontrol a la página por la clase base
+        /// Solo se ejecuta la primera vez que se carga la página Final, una vez añadido el usercontrol a la página por la clase base
         /// de este formulario, y se utiliza para realizar cualquier configuración adicional en las propiedades del usercontrol que se ha
         /// añadido o cualquier otra acción que requiera realizar una vez añadido el usercontrol a la página.
         /// </summary>
@@ -530,7 +530,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// <summary>
         /// Método que se dispara al cargar una nueva página en el asistente. 
         /// 
-        /// Solo se ejecuta la primera vez que se carga la pagina, las siguientes veces que se accede a la página (pulsando el botón 
+        /// Solo se ejecuta la primera vez que se carga la página, las siguientes veces que se accede a la página (pulsando el botón 
         /// Anterior p.e.) ya no pasa por aquí por que la página ya ha sido cargada con anterioridad y internamente lo único que hace es 
         /// situarse en la página que toca.
         /// </summary>        
@@ -631,7 +631,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// 
         /// Solo se ejecuta en los páginas del asistente anteriores a la página que ejecuta el proceso del asistente.
         /// </summary>       
-        /// <param name="toPagina">Pagina del asistente que se trata de abandonar cuando se ha pulsado el botón Siguiente.</param>
+        /// <param name="toPagina">Página del asistente que se trata de abandonar cuando se ha pulsado el botón Siguiente.</param>
         /// <param name="toWorker">Objeto BackgroundWorker.</param>
         /// <returns></returns>
         protected override bool _SaveWizardPage(PaginaPasoWizard toPagina, BackgroundWorker toWorker)

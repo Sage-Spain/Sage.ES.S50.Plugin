@@ -56,7 +56,7 @@
             this.ewLabelTitulo.Name = "ewLabelTitulo";
             this.ewLabelTitulo.Size = new System.Drawing.Size(605, 25);
             this.ewLabelTitulo.TabIndex = 3;
-            this.ewLabelTitulo.Text = "Pagina final resumen del resultado ejecución importación de datos";
+            this.ewLabelTitulo.Text = "Página final resumen del resultado ejecución importación de datos";
             // 
             // ewlabel2
             // 
@@ -69,7 +69,7 @@
             this.ewlabel2.Name = "ewlabel2";
             this.ewlabel2.Size = new System.Drawing.Size(733, 44);
             this.ewlabel2.TabIndex = 5;
-            this.ewlabel2.Text = "Pagina Final";
+            this.ewlabel2.Text = "Página Final";
             // 
             // ewlabel4
             // 
