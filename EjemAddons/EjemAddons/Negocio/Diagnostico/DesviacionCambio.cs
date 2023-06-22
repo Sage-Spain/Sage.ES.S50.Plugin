@@ -16,7 +16,7 @@ namespace sage.ew.EjemAddons.Diagnostico
     {
 
         /// <summary>
-        /// Método que se ejecutará al realizar las pruebas diagnosticas, deberemos devolver un listado con los resultados de las pruebas realizadas. 
+        /// Método que se ejecutará al realizar las pruebas diagnósticas, deberemos devolver un listado con los resultados de las pruebas realizadas. 
         /// Por ejemplo en este proceso realizaremos una consulta para obtener los registros de asientos con divisa diferente a la de la empresa y su cambio exceda por tres la desviación estándar.
         /// </summary>
         /// <returns>Listado de IResultadoPruebaDiagnostica con los resultados de las pruebas</returns>
