@@ -26,7 +26,7 @@ namespace sage.addons.EjemAddons
         public override string Firma { get; set; }
 
         /// <summary>
-        /// Instancia del ensamblado al que pertenece la libreria
+        /// Instancia del ensamblado al que pertenece la librería
         /// </summary>
         ///public Assembly _Assembly;
 
@@ -77,7 +77,7 @@ namespace sage.addons.EjemAddons
         }
 
         /// <summary>
-        /// Devuelve la lista prévia del documento
+        /// Devuelve la lista previa del documento
         /// </summary>
         /// <param name="tcClass"></param>
         /// <param name="toTipoObjeto"></param>
