@@ -297,12 +297,12 @@ namespace sage.addons.EjemAddons
         }
 
         /// <summary>
-        /// En este método el usuario final se podrá suscribirse al evento OnUpdateStocks que se dispara en el método _Update de la clase Update_Stocks
+        /// En este método el usuario final se podrá suscribir al evento OnUpdateStocks que se dispara en el método _Update de la clase Update_Stocks
         /// </summary>
         /// <param name="stocks"></param>
         public override void _BindUpdateStocks(IUpdateStocks stocks)
         {
-            //Ejemplo de como subscribirse al evento que se disparará en el método _Update de la clase Update_Stocks
+            //Ejemplo de como suscribirse al evento que se disparará en el método _Update de la clase Update_Stocks
             stocks._OnUpdateStocks += Stocks__OnUpdateStocks;
 
             base._BindUpdateStocks(stocks);
