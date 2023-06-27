@@ -16,7 +16,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
     /// Ejemplo del evento _GetOpciones en los documentos de venta
     /// 
     /// Mediante el siguiente código se podrá acceder a las opciones que se presentan en los documentos para poder gestionar acciones adicionales
-    /// así como limitar la ejecución de alguna opción.
+    /// así cómo limitar la ejecución de alguna opción.
     /// 
     /// Ejemplos: 
     /// - Cambiar el estilo de la fuente de una opción a negrita
@@ -25,9 +25,9 @@ namespace sage.addons.EjemAddons.Visual.BindForm
     /// - Y desactivar una opción si es necesario
     /// - Cambiar el texto de una opción
     /// 
-    /// Se pueden realizar más acciones, el código simplemente es para ver como acceder a las opciones y varias de las posibilidades que tenemos.
+    /// Se pueden realizar más acciones, el código simplemente es para ver cómo acceder a las opciones y varias de las posibilidades que tenemos.
     /// 
-    /// Adicionalmente tenemos el ejemplo de como suscribirnos a los eventos OnClickInvalidate, OnClickBefore y OnClickAfter del "ToolStripMenuItemBase"
+    /// Adicionalmente tenemos el ejemplo de cómo suscribirnos a los eventos OnClickInvalidate, OnClickBefore y OnClickAfter del "ToolStripMenuItemBase"
     /// </summary>
     public class BindFormGetOpcionesDocumentosVenta : BindFormBase
     {
@@ -80,7 +80,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
 
         #region Métodos privados
         /// <summary>
-        /// Ejemplo de como modificar opciones del menú contextual de herramientas de los formularios de Sage 50
+        /// Ejemplo de cómo modificar opciones del menú contextual de herramientas de los formularios de Sage 50
         /// y gestionar las acciones al suscribirnos a los 3 eventos disponibles para gestionar la invalidación de una acción
         /// </summary>
         /// <param name="toEnventArgOpciones">EventArgs con las opciones del ContextMenu</param>
@@ -121,10 +121,10 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         /// En este ejemplo no permitimos realizar una acción hasta que el día del mes no sea superior o igual a 15
         /// </summary>
         /// <param name="toToolStripMenuItemBase">Referencia al ítem</param>
-        /// <param name="tlCancel">Es necesario devolver true para que no continue con la ejecucuón del click</param>
+        /// <param name="tlCancel">Es necesario devolver true para que no continue con la ejecución del click</param>
         private void ToolStripMenuItemBase_OnClickInvalidate(ToolStripMenuItemBase toToolStripMenuItemBase, ref bool tlCancel)
         {
-            // Podemos acceder al text i al nombre del ToolStripMenuItemBase
+            // Podemos acceder al text y al nombre del ToolStripMenuItemBase
             string lcText = toToolStripMenuItemBase.Text; 
             string lcName = toToolStripMenuItemBase.Name;
 

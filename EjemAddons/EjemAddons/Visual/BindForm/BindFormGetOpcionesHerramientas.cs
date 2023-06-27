@@ -68,7 +68,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
 
         #region Métodos privados
         /// <summary>
-        /// Ejemplo de como añadir opciones al menú contextual de herramientas de los formularios de Sage 50
+        /// Ejemplo de cómo añadir opciones al menú contextual de herramientas de los formularios de Sage 50
         /// </summary>
         /// <param name="toEnventArgOpcionesHerramientas"></param>
         private void FrmDocBotonHerramientas__GetOpcionesHerramientas(EventArgsOpciones toEnventArgOpcionesHerramientas)

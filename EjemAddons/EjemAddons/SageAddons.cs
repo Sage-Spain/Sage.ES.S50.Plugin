@@ -48,9 +48,9 @@ namespace sage.addons.EjemAddons
         #region MÉTODOS
 
         /// <summary>
-        /// Método que nos permite configurar como se debe actualizar nuestro add-on y desde que espacio FTP
+        /// Método que nos permite configurar cómo se debe actualizar nuestro add-on y desde que espacio FTP
         /// Únicamente configuramos para que nos devuelva un objeto que cumpla la interfaz IAccesAddonUrl y Sage 50 tanto en el 
-        /// proceso de actualización de una Master como la actualización de una release automáticamente accederá a la configuración
+        /// proceso de actualización de una Master cómo la actualización de una release automáticamente accederá a la configuración
         /// del hosting y se bajará la última versión del add-on.
         /// </summary>
         /// <returns></returns>
@@ -302,7 +302,7 @@ namespace sage.addons.EjemAddons
         /// <param name="stocks"></param>
         public override void _BindUpdateStocks(IUpdateStocks stocks)
         {
-            //Ejemplo de como suscribirse al evento que se disparará en el método _Update de la clase Update_Stocks
+            //Ejemplo de cómo suscribirse al evento que se disparará en el método _Update de la clase Update_Stocks
             stocks._OnUpdateStocks += Stocks__OnUpdateStocks;
 
             base._BindUpdateStocks(stocks);

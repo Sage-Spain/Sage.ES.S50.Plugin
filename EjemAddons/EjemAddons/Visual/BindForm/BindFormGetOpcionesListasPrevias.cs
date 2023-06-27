@@ -20,26 +20,26 @@ namespace sage.addons.EjemAddons.Visual.BindForm
     /// 
     /// En este ejemplo adicionalmente se realizará la modificación para las listas previas de asientos contables
     /// 
-    /// Mediante el siguiente código se podrá acceder a las opciones que se presentan en el formulario de de listas previas asientos contables poder gestionar acciones adicionales,
-    /// limitar la ejecución de alguna opción y podremos ver como añadir una nueva opción en el botón de opciones.
+    /// Mediante el siguiente código se podrá acceder a las opciones que se presentan en el formulario de listas previas asientos contables poder gestionar acciones adicionales,
+    /// limitar la ejecución de alguna opción y podremos ver cómo añadir una nueva opción en el botón de opciones.
     /// 
     /// Ejemplos:
-    /// - Como añadir una nueva opción en el botón de opciones
+    /// - Cómo añadir una nueva opción en el botón de opciones
     /// - Actualizar la descripción de una opción del botón de opciones
     /// - Modificar el estilo de la fuente a Negrita
     /// - Cambiar el color de una opción
     /// - Desactivar una opción con la lógica correspondiente
     /// - Bloquear una opción de menú en función del usuario actual
     /// 
-    /// Se pueden realizar más acciones, el código simplemente es para ver como acceder a las opciones y varias de las posibilidades que tenemos.
+    /// Se pueden realizar más acciones, el código simplemente es para ver cómo acceder a las opciones y varias de las posibilidades que tenemos.
     /// 
-    /// Adicionalmente tenemos el ejemplo de como suscribirnos a los eventos OnClickInvalidate, OnClickBefore y OnClickAfter del "ToolStripMenuItemBase"
+    /// Adicionalmente tenemos el ejemplo de cómo suscribirnos a los eventos OnClickInvalidate, OnClickBefore y OnClickAfter del "ToolStripMenuItemBase"
     /// </summary>
     public class BindFormGetOpcionesListasPrevias : BindFormBase
     {
         #region Propiedades privadas
         /// <summary>
-        /// Referencia al formularios de listas previas
+        /// Referencia al formulario de listas previas
         /// </summary>
         private frmListasPrevias _ofrmListasPrevias = null;
         #endregion Propiedades privadas
@@ -96,7 +96,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         /// <summary>
         /// Devuelve si la lista previa es de asientos
         /// 
-        /// En el formulario de listas previas podemos tener en ejecucion varios tipos de documenento.
+        /// En el formulario de listas previas podemos tener en ejecución varios tipos de documento.
         /// En este método se gestiona si la lista previa es del tipo de asiento contable
         /// </summary>
         /// <returns></returns>
@@ -119,7 +119,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         }
 
         /// <summary>
-        /// Ejemplo de como añadir opciones al menú contextual de herramientas del formulario de la lista previa de asientos contables
+        /// Ejemplo de cómo añadir opciones al menú contextual de herramientas del formulario de la lista previa de asientos contables
         /// </summary>
         /// <param name="toEnventArgOpciones">EventArgs con las opciones del ContextMenu</param>
         private void BindFormGetOpcionesListasPrevias__GetOpciones(ew.objetos.EventArgsOpciones toEnventArgOpciones)
@@ -166,7 +166,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         }
 
         /// <summary>
-        /// Acción a ajecutar al realizar el click sobre el ToolStripMenuItemBase añadido en el botón de opciones
+        /// Acción a ejecutar al realizar el click sobre el ToolStripMenuItemBase añadido en el botón de opciones
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -214,7 +214,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
                 // Evento Before si es necesario realizar alguna acción previa 
                 loToolStripMenuItemBase.OnClickBefore += ToolStripMenuItemBase_OnClickBefore;
 
-                //    // Evento Before si es necesario realizar alguna acción previa 
+                // Evento Before si es necesario realizar alguna acción previa 
                 loToolStripMenuItemBase.OnClickAfter += ToolStripMenuItemBase_OnClickAfter;
             }
         }
@@ -225,10 +225,10 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         /// En este ejemplo únicamente dejamos utilizar la opción de "Exportar" al usuario SUPERVISOR
         /// </summary>
         /// <param name="toToolStripMenuItemBase">Referencia al ítem</param>
-        /// <param name="tlCancel">Es necesario devolver true para que no continue con la ejecucuón del click</param>
+        /// <param name="tlCancel">Es necesario devolver true para que no continue con la ejecución del click</param>
         private void ToolStripMenuItemBase_OnClickInvalidate(ToolStripMenuItemBase toToolStripMenuItemBase, ref bool tlCancel)
         {
-            // Podemos acceder al text i al nombre del ToolStripMenuItemBase
+            // Podemos acceder al text y al nombre del ToolStripMenuItemBase
             string lcText = toToolStripMenuItemBase.Text;
             string lcName = toToolStripMenuItemBase.Name;
 

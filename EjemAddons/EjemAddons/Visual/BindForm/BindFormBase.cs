@@ -26,13 +26,13 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         /// <summary>
         /// Contructor de la clase
         /// 
-        /// Mediente la instrucción "_oFormBase._AddBindFormClass(this)" se añade la instancia para su posterior liberación al realizarse el Dispose de la instancia 
+        /// Mediante la instrucción "_oFormBase._AddBindFormClass(this)" se añade la instancia para su posterior liberación al realizarse el Dispose de la instancia 
         /// </summary>
         /// <param name="_toFormBase">Referencia al formulario al que estamos realizando el correspondiente _BindForm</param>
         public BindFormBase(IFormBase _toFormBase)
         {
 
-            // Certificamos que el formulario donde se está realizando el BindForm es una instancia basasa en el formulario"FormBase"
+            // Certificamos que el formulario donde se está realizando el BindForm es una instancia basada en el formulario"FormBase"
             if (_toFormBase != null && _toFormBase is FormBase)
             {
                 // Asignamos la referencia al formulario
@@ -62,7 +62,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         /// <summary>
         /// suscripción a los eventos necesarios
         /// 
-        /// Será necesario realizar la llamada correspondiente a este método por ejemplo en el método _Init una vez realizadas las acciones necesarias como añadir o buscar controles.
+        /// Será necesario realizar la llamada correspondiente a este método por ejemplo en el método _Init una vez realizadas las acciones necesarias cómo añadir o buscar controles.
         /// </summary>
         public virtual void _SuscripcionEventos()
         {
