@@ -80,7 +80,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
 
         /// <summary>
         /// Cancelar la suscripción a los eventos para la correcta liberación de la memoria
-        /// Muy importante desubscribirse de los eventos subscritos para 
+        /// Muy importante desuscribirse de los eventos suscritos para 
         /// </summary>
         public override void _CancelarSuscripcionEventos()
         {
@@ -112,7 +112,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
         /// Controles previos a la ejecución de la acción relacionada con el click
         /// 
         /// Presentaremos el mensaje de si desea continuar con el proceso de facturación
-        /// Mediente este evento podremos cancelar la ejecución de cualquier proceso
+        /// Mediante este evento podremos cancelar la ejecución de cualquier proceso
         /// </summary>
         /// <param name="toButton">Referencia al botón</param>
         /// <param name="tlCancel">Para poder cancelar el proceso es necesario asignar => tlCancel = true</param>
