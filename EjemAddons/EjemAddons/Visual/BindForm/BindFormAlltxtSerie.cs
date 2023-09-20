@@ -97,7 +97,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
             AsignarEventosTxt(toFormBase, toControl, true);  //Suscripción al evento txtserie
             AsignarEventosTab(toFormBase, toControl, true);  //Suscripción a las TabControl
 
-            ((FormBase)toFormBase).FormClosing += (sender, e) => FormBase_FormClosing(sender, e, toFormBase, toControl); //Nos sucribimos al formclosing para cancelar los eventos
+            ((FormBase)toFormBase).FormClosing += (sender, e) => FormBase_FormClosing(sender, e, toFormBase, toControl); //Nos suscribimos al formclosing para cancelar los eventos
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
                         serie._Browser_Titulos_Campos += ",Add-on";
                         serie._Browser_Campos += "," + DB.SQLString("Columna creada con el add-on de ejemplo: ") + " + codigo as addon";
 
-                        //Nos suscribimos al codigo cambiado
+                        //Nos suscribimos al código cambiado
                         serie._Codigo_Cambiado_Before_Extended += Serie__Codigo_Cambiado_Before_Extended;                      
                     }
                     else
@@ -328,7 +328,7 @@ namespace sage.addons.EjemAddons.Visual.BindForm
                         txtSerie loTxtSerie = sender as txtSerie;
 
                         //Solo presentamos el mensaje cuando no es de solo lectura el txtserie, ya que nos podemos encontrar que en el momento de la asignación
-                        //del binding salte el mensaje, un ejemplo seria en el mantenimiento de clientes, cuando de accede a la pestaña de facturación, en ese 
+                        //del binding salte el mensaje, un ejemplo seria en el mantenimiento de clientes, cuando se accede a la pestaña de facturación, en ese 
                         //momento se crea la pestaña, se hace el binding y salta un mensaje, pero al añadir la condición de !loTxtSerie._ReadOnly no se presenta
                         //solo lo muestra en modo edición
                         if (loTxtSerie != null && !loTxtSerie._ReadOnly)
