@@ -104,6 +104,7 @@
   <ItemGroup>
     <Compile Include="Negocio\Clases\classConfig.cs" />
     <Compile Include="Negocio\Clases\EjemArticuloCreacion.cs" />
+    <Compile Include="Negocio\Clases\EjemClienteCreacion.cs" />
     <Compile Include="Negocio\Clases\EjemExtAlbaven.cs" />
     <Compile Include="Negocio\Clases\EjemExtFactuven.cs" />
     <Compile Include="Negocio\Clases\EjemExtPediven.cs" />
