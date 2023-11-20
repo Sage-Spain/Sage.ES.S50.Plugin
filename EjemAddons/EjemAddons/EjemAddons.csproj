@@ -91,6 +91,9 @@
     <Reference Include="sage.ew.reports">
       <HintPath>sage.ew.reports.dll</HintPath>
     </Reference>
+    <Reference Include="sage.ew.usuario">
+      <HintPath>sage.ew.usuario.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -109,6 +112,7 @@
     <Compile Include="Negocio\Clases\EjemExtFactuven.cs" />
     <Compile Include="Negocio\Clases\EjemExtPediven.cs" />
     <Compile Include="Negocio\Clases\EjemAsistente.cs" />
+    <Compile Include="Negocio\Clases\EjemGrupoEmpCreacion.cs" />
     <Compile Include="Negocio\Clases\EjemVentasBase.cs" />
     <Compile Include="Negocio\Clases\UpdateAddonHosting.cs" />
     <Compile Include="Negocio\Diagnostico\DesviacionCambio.cs" />
