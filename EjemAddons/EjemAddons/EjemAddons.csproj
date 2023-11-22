@@ -33,6 +33,9 @@
     <RootNamespace>sage.addons.EjemAddons</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="sage.50">
+      <HintPath>..\..\..\Librerias\sage.50.exe</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="sage.es.s50.addons, Version=50.7780.0.69, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -81,7 +84,9 @@
     <Reference Include="sage.ew.objetos">
       <HintPath>sage.ew.objetos.dll</HintPath>
     </Reference>
-    <Reference Include="sage.ew.stocks, Version=50.7790.0.55, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="sage.ew.stocks">
+      <HintPath>sage.ew.stocks.dll</HintPath>
+    </Reference>
     <Reference Include="sage.ew.txtbox">
       <HintPath>sage.ew.txtbox.dll</HintPath>
     </Reference>
@@ -90,6 +95,9 @@
     </Reference>
     <Reference Include="sage.ew.reports">
       <HintPath>sage.ew.reports.dll</HintPath>
+    </Reference>
+    <Reference Include="sage.ew.cliente">
+      <HintPath>sage.ew.cliente.dll</HintPath>
     </Reference>
     <Reference Include="sage.ew.usuario">
       <HintPath>sage.ew.usuario.dll</HintPath>
@@ -130,6 +138,10 @@
     </Compile>
     <Compile Include="Visual\Forms\frmEjemAsistente.designer.cs">
       <DependentUpon>frmEjemAsistente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Forms\frmEjemCambioAnchoCampo.cs" />
+    <Compile Include="Visual\Forms\frmEjemCambioAnchoCampo.designer.cs">
+      <DependentUpon>frmEjemCambioAnchoCampo.cs</DependentUpon>
     </Compile>
     <Compile Include="Visual\Forms\frmSplash.cs">
       <SubType>Form</SubType>
@@ -196,6 +208,9 @@
     <Content Include="sage.ew.reports\base\template.template" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Visual\Forms\frmEjemCambioAnchoCampo.resx">
+      <DependentUpon>frmEjemCambioAnchoCampo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visual\Forms\frmSplash.resx">
       <DependentUpon>frmSplash.cs</DependentUpon>
     </EmbeddedResource>
