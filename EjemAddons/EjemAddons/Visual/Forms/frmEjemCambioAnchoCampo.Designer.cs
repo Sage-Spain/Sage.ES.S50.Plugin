@@ -389,11 +389,11 @@ namespace sage.addons.EjemAddons.Visual.Forms
             this.ewlblAnchoStandar._Localizacion = sage.ew.interficies.LocalizacionOpcion.Bottom;
             this.ewlblAnchoStandar.AutoSize = true;
             this.ewlblAnchoStandar.Font = new System.Drawing.Font("Sage UI", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ewlblAnchoStandar.Location = new System.Drawing.Point(197, 27);
+            this.ewlblAnchoStandar.Location = new System.Drawing.Point(191, 27);
             this.ewlblAnchoStandar.Name = "ewlblAnchoStandar";
-            this.ewlblAnchoStandar.Size = new System.Drawing.Size(90, 16);
+            this.ewlblAnchoStandar.Size = new System.Drawing.Size(97, 16);
             this.ewlblAnchoStandar.TabIndex = 19;
-            this.ewlblAnchoStandar.Text = "Ancho standar";
+            this.ewlblAnchoStandar.Text = "Ancho estándar";
             // 
             // ewNumCuentaAnchoMinimo
             // 
