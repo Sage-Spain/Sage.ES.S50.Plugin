@@ -195,7 +195,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
         /// </summary>
         private void configuracionVisual()
         {
-            // Obtenemos toda la informacion sobre el campo ARTICULO: ancho actual, ancho stándar, ancho mínimo, ancho máximo, etc., y la ponemos en los
+            // Obtenemos toda la informacion sobre el campo ARTICULO: ancho actual, ancho estándar, ancho mínimo, ancho máximo, etc., y la ponemos en los
             // campos respectivos de pantalla.
             //
             // Recordar que en this.cambioAnchuraCampos._ListaCamposAmpliables están todos los campos que se pueden cambiar la anchura.
@@ -227,7 +227,7 @@ namespace sage.addons.EjemAddons.Visual.Forms
             }
 
 
-            // Obtenemos toda la informacion sobre el campo CUENTA: ancho actual, ancho stándar, ancho mínimo, ancho máximo, etc., y la ponemos en los
+            // Obtenemos toda la informacion sobre el campo CUENTA: ancho actual, ancho estándar, ancho mínimo, ancho máximo, etc., y la ponemos en los
             // campos respectivos de pantalla.
             //
             CambioAnchuraCampos.Campo loCampoCuenta = this.cambioAnchuraCampos._ListaCamposAmpliables.
