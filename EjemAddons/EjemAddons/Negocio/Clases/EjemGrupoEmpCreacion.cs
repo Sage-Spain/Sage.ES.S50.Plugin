@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -261,7 +262,7 @@ namespace sage.addons.EjemAddons.Negocio.Clases
         {
             bool llOk = true;
 
-            // El grupo al que se quiere cambiar no existe.
+            // Si el grupo al que se quiere cambiar no existe abandonamos el método.
             //
             GrupoEmpresa loGrupoExistente = new GrupoEmpresa(tcCodigoGrupoCambiar);
             if (loGrupoExistente._Estado != ewMante._EstadosMantenimiento.MostrandoRegistro)
@@ -272,15 +273,44 @@ namespace sage.addons.EjemAddons.Negocio.Clases
             loGrupoExistente = null;
 
             // Código de empresa del nuevo grupo en la que queremos que quede situado una vez se haya llevado a cabo el cambio
-            // de grupo.
+            // de grupo, por defecto empresa '01' pero se podría seleccionar cualquier otra.
             //
             string lcEmpresaSituar = "01";
 
+            // Buscamos si hay empresas definidas en el grupo destino (deberían existir). Si existe la empresa '01' en el nuevo grupo
+            // cambiaremos a ella, sino cambiaremos a la primera empresa que encontremos en la lista de empresas del grupo.
+            //
+            GrupoEmpresa loGrupoCambiar = new GrupoEmpresa(tcCodigoGrupoCambiar);
+            if (loGrupoCambiar._dtEmpresasGrupo != null && loGrupoCambiar._dtEmpresasGrupo.Rows.Count > 0)
+            {
+                DataRow[] laRows = loGrupoCambiar._dtEmpresasGrupo.Select("codigo='01'");
+                if (laRows.Length == 0)
+                    lcEmpresaSituar = Convert.ToString(loGrupoCambiar._dtEmpresasGrupo.Rows[0]["codigo"]);
+            }
+
+            // Para que el cambio de grupo funcione correctamente se deberán cumplir varias premisas:
+            //
+            // 1. Código de grupo existente y código de empresa existente en el grupo al que se cambia.
+            // 2. Usuario activo en el grupo actual que exista también en el grupo destino al que se cambia. Si se ha acaba de crear el nuevo
+            //    grupo es recomendable pasar parámetro para que conserve los usuarios del grupo principal al crear el nuevo grupo. Recordar 
+            //    que el nuevo grupo siempre se crea a partir del grupo principal. Si el usuario activo es SUPERVISOR no debería ser problema
+            //    pues el usuario SUPERVISOR existe en todos los grupos.
+            // 3. Password del usuario activo en el grupo actual idéntico a la password que tenga el usuario en el grupo destino al que se
+            //    cambia.
+            // 4. Usuario tenga acceso a la empresa destino en el grupo destino. Si el usuario activo es SUPERVISOR no debería ser problema 
+            //    pues a SUPERVISOR se le permite todo. Para verificar otro usuario diferente de SUPERVISOR se puede utilizar el metódo de 
+            //    AccesoUsuarioEmpresa(lcGrupo, lcEmpresa) de la clase GrupoEmpresaSel, si devuelve true significa que existe el usuario activo
+            //    en el grupo y tiene acceso.
+            //
             GrupoEmpresaSel loGrupo = new GrupoEmpresaSel();
+
             llOk = loGrupo._CambiarGrupo(tcCodigoGrupoCambiar, lcEmpresaSituar);
 
-            if (!llOk)
+            if (llOk == false || DB.DbComunes.Substring(4, 4) != tcCodigoGrupoCambiar)
+            {
+                llOk = false;
                 mensajeError = "No se puedo efectuar el cambio de grupo al grupo " + tcCodigoGrupoCambiar;
+            }
 
             return llOk;
         }
