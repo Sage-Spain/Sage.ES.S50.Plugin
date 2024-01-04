@@ -23,7 +23,6 @@ namespace main
             // *********************************************************************************************
             // **** D A T O S  D E  C O N F I G U R A C I Ó N  D E  A R R A N Q U E  D E L  A D D - O N **** 
             // definiciones de rutas de Sage 50 donde se encuentra la instalación
-            // Por favor, en caso que se 
             string rutaSage50Serv = @"c:\sage50\sage50serv\";
             string rutaSage50Term = @"c:\Sage50\sage50term\";
 
@@ -45,7 +44,7 @@ namespace main
             // Debe haber una ruta de terminal de Sage 50 valida, un usuario y password de Sage 50
             if (!main_s50.Connect(rutaSage50Term, usuario, password))
             {
-                MessageBox.Show($@"Error en lá conexión de Sage 50. Por favor valide la siguiente información:{Environment.NewLine}{Environment.NewLine} Ruta del terminal: {rutaSage50Term}{Environment.NewLine} Usuario: {usuario}{Environment.NewLine} Password: {password}", "SDK Sage 50", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($@"Error en la conexión de Sage 50. Por favor valide la siguiente información:{Environment.NewLine}{Environment.NewLine} Ruta del terminal: {rutaSage50Term}{Environment.NewLine} Usuario: {usuario}{Environment.NewLine} Password: {password}", "SDK Sage 50", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
