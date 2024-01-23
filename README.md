@@ -41,3 +41,9 @@ En caso que en el fichero Program.cs del proyecto Main se cambie el usuario y se
 
 <h2>Rutas donde se debe instalar el proyecto</h2>
 <p>Se puede descargar el código de ejemplo y una vez descomprimido debes copiar la carpeta "EjemAddons" dentro de la carpeta Modulos del servidor de Sage 50.</p>
+
+<h2>Notas adicionales</h2>
+<ul>
+  <li>Proyecto EjemAddons: este proyecto está preparado para versiones de Sage 50.7820.0 o inferiores</li>
+  <li>Proyecto EjemAddons7830: este proyecto está preparado para versiones de Sage 50 50.7830.0 o superiores (en esta versión ya están cambiadas las referencias y se utiliza el nuevo sistema de referencias)</li>
+</ul>
