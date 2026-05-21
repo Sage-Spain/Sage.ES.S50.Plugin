@@ -1,4 +1,6 @@
 # Sage.ES.S50.Plugin
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSage-Spain%2FSage.ES.S50.Plugin.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FSage-Spain%2FSage.ES.S50.Plugin?ref=badge_shield)
+
 
 <h2>Instalación del add-on</h2>
 <p>Para poder instalar el add-on y ver todo el código fuente se deben seguir los siguientes pasos:</p>
@@ -47,3 +49,7 @@ En caso que en el fichero Program.cs del proyecto Main se cambie el usuario y se
   <li>Proyecto EjemAddons: este proyecto está preparado para versiones de Sage 50.7820.0 o inferiores</li>
   <li>Proyecto EjemAddons7830: este proyecto está preparado para versiones de Sage 50 50.7830.0 o superiores (en esta versión ya están cambiadas las referencias y se utiliza el nuevo sistema de referencias)</li>
 </ul>
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSage-Spain%2FSage.ES.S50.Plugin.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FSage-Spain%2FSage.ES.S50.Plugin?ref=badge_large)
